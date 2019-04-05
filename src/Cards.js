@@ -13,7 +13,7 @@ export default class Card extends Component {
         {
           filtered ? 
             (filtered.map(v => 
-              <div className="product" key={uuid()} onClick={this.props.toggleCart} >
+              <div className="product" key={uuid()} onClick={() => {this.props.toggleCart(); console.log("clicked")} } >
                 <p className="shipping">Free shipping</p>
                 <figure className="img-box">
                   <img src={`https://raw.githubusercontent.com/jeffersonRibeiro/react-shopping-cart/master/src/static/products/${v.sku}_1.jpg`} alt="product_img"/>
@@ -33,7 +33,7 @@ export default class Card extends Component {
             )) :
 
           (data.data.map(v => 
-          <div className="product" key={uuid()} onClick={this.props.toggleCart} >
+          <div className="product" key={uuid()} onClick={() =>  {this.props.toggleCart(); console.log("call")}} >
             <p className="shipping">Free shipping</p>
             <figure className="img-box">
               <img src={`https://raw.githubusercontent.com/jeffersonRibeiro/react-shopping-cart/master/src/static/products/${v.sku}_1.jpg`} alt="product_img"/>

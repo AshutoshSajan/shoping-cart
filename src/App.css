@@ -193,7 +193,7 @@
 	transform: translateX(-100%);
 }
 
-.fas {
+.fas, .close-btn {
 	color: #f3f3f3;
 	font-size: 40px;
 }

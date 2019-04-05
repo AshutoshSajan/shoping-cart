@@ -11,10 +11,14 @@ export default class Cart extends React.Component {
 		return(
 			<div className={`cart ${data.isOpen ? "open" : "close"}`}>
 				<button className="cart-btn" onClick={this.props.toggleCart}>
-					<i className="fas fa-cart-plus"></i>
+					{
+						data.isOpen ?
+						<span className="close-btn">X</span> : 
+						<i className="fas fa-cart-plus"></i> 	
+					}
 				</button>
 				<ul>
-					
+
 				</ul>
 				<div className="subtotal-btn">
 					<p>SUBTOTAL</p>
