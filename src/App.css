@@ -5,20 +5,22 @@
 	transition: all 1s ease-out;
 	font-size: 22px;
 	position: absolute;
-	top: 0;
+	padding: 5px 0;
+	top: -7%;
 	left: 0;
 	width: 100%;
+	text-transform: capitalize;
 }
 
 .internet-error {
-	transform: translateY(-100%);
+	transform: translateY(100%);
 }
 
 /*====================================*/
 /*sizes section*/
 /*====================================*/
 .sizes {
-	width: 40%
+	width: 50%;
 }
 
 .sizes h2{
@@ -29,6 +31,10 @@
 .filtered-size {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.repo-link {
+	margin-top: 20px;
 }
 
 .circle {
@@ -69,7 +75,8 @@
 .img-box img {
 	width: 100%;
 }
-
+/*===============================*/
+/*product section*/
 /*===============================*/
 .product {
 	border: 1px solid transparent;
@@ -80,6 +87,7 @@
 }
 .product:hover {
 	border-color: #ececec;
+	cursor: pointer;
 }
 
 .product:hover .add-to-cart {
@@ -103,18 +111,38 @@
 	padding: 10px 0;
 }
 
+.product-details {
+	text-align: center;
+}
+.line {
+	height: 2px;
+	display: inline-block;
+	background: #eabf00;
+	width: 25px;
+}
+
+.price {
+	margin: 15px 0 20px 0;
+}
+
+.bold {
+	font-size: 30px;
+	font-weight: bold;
+}
+
 /*================================*/
 /*main sec*/
 /*================================*/
 .main-sec {
 	display: flex;
-	width: 80%;
+	width: 90%;
 	justify-content: center;
 	margin: 40px auto;
 }
 .card {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .product-header, .sort-product {
@@ -123,4 +151,49 @@
 }
 .product-header {
 	width: 96.5%;
+}
+
+/*=========================*/
+/*header section*/
+/*=========================*/
+
+.select-input {
+	margin-left: 20px;
+}
+
+/*=============================*/
+/*cart section*/
+/*=============================*/
+.cart {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 400px;
+	height: 100vh;
+	background: #111;
+	text-align: center;
+	color: #fff;
+	transition: all 500ms ease-out
+}
+
+/*.open {
+}*/
+
+.close{
+	transform: translateX(100%);
+}
+
+.cart-btn {
+	background: #111;
+	border-radius: 0;
+	position: absolute;
+	display: block;
+	padding: 10px;
+	margin-right: 200px;
+	transform: translateX(-100%);
+}
+
+.fas {
+	color: #f3f3f3;
+	font-size: 40px;
 }

@@ -3,11 +3,13 @@ import Loading from "./Loading";
 import Size from './Size';
 import Header from './Header';
 import Cards from './Cards';
+import Cart from './Cart';
 
 export default class Main extends React.Component {
 	state = {
 		data: null,
-		loading: true
+		loading: true,
+		isOpen: false,
 	}
 
 	componentDidMount = () => {
@@ -16,26 +18,42 @@ export default class Main extends React.Component {
 		.then(({products}) => this.setState({data:products, loading: false}))
 	}
 
+	addToCart = (data) => {
+		// console.log(data)
+	}
+	
+	toggleCart = () => {
+		const toggle = this.state.isOpen;
+		this.setState({isOpen: !toggle})
+	}
+
+	handleFilter = (size) => {
+		const filtered = this.state.data.filter(obj => obj.availableSizes.includes(size))
+		this.setState({filtered})
+	}
+
 	render() {
+		// console.log(this.state);
+		// setTimeout(() => this.setState({className: "internet-error"}), 2000)
+		// setTimeout(this.handleFilter ,1000)
 		return(
-			// navigator.online ?
-			this.state.loading ? <Loading /> :
-			<section className="main-sec">
-				<Size data={this.state.data}/>
-				<div>
-					<Header data={this.state.data} />
-					<div className="card">
-						<Cards data={this.state.data} />
+			// <>
+				// navigator.online ?
+				this.state.loading ? <Loading /> :
+				<>
+				<section className="main-sec">
+					<Size data={this.state.data} handleFilter={this.handleFilter}/>
+					<div>
+						<Header data={this.state.data} />
+						<div className="card">
+							<Cards data={this.state} addToCart={this.addToCart} toggleCart={this.toggleCart}/>
+						</div>
 					</div>
-				</div>
-			</section>		
+				</section>
+				<Cart data={this.state} toggleCart={this.toggleCart} />
+			</>
+			// <p className={`error ${this.state.className}`}>No internet connection</p>
 		)
 	}
 }
 
-// <div>
-// 	<p className={this.state.className}>No internet connection</p>
-// 	{
-// 		setTimeout(() => this.setState({className: "error internet-error"}), 2000)
-// 	}
-// </div>	

@@ -1,18 +1,26 @@
-import React from './react';
+import React from 'react';
 
 export default class Cart extends React.Component {
 	state = {
-
+		isOpen: false,
 	}
-	
-	render(){
-		return(
-			<div className="cart">
-				<div className="fas fa-cart-plus"></div>
-				<ul>
 
+	render(){
+		// console.log(this.props)
+		const {data} = this.props
+		return(
+			<div className={`cart ${data.isOpen ? "open" : "close"}`}>
+				<button className="cart-btn" onClick={this.props.toggleCart}>
+					<i className="fas fa-cart-plus"></i>
+				</button>
+				<ul>
+					
 				</ul>
-				<button>CHECKOUT</button>
+				<div className="subtotal-btn">
+					<p>SUBTOTAL</p>
+					<p>price</p>
+				</div>
+				<button className={`checkout-btn ${this.state.className}`}>CHECKOUT</button>
 			</div>
 		)
 	}
