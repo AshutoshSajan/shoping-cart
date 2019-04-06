@@ -17,14 +17,17 @@ export default class Cart extends React.Component {
 						<i className="fas fa-cart-plus"></i> 	
 					}
 				</button>
+				<div className="cart-header"><i className="fas fa-cart-plus"></i></div>
 				<ul>
 
 				</ul>
-				<div className="subtotal-btn">
-					<p>SUBTOTAL</p>
-					<p>price</p>
+				<div className="subtotal-sec">
+					<div className="total-price">
+						<p>SUBTOTAL</p>
+						<p>price</p>
+					</div>
+					<button className={`checkout-btn ${this.state.className}`}>CHECKOUT</button>
 				</div>
-				<button className={`checkout-btn ${this.state.className}`}>CHECKOUT</button>
 			</div>
 		)
 	}

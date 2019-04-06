@@ -33,7 +33,7 @@ export default class Main extends React.Component {
 	}
 
 	render() {
-		// console.log(this.state);
+		console.log(this.state);
 		// setTimeout(() => this.setState({className: "internet-error"}), 2000)
 		// setTimeout(this.handleFilter ,1000)
 		return(

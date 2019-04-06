@@ -168,16 +168,13 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	width: 400px;
+	width: 450px;
 	height: 100vh;
 	background: #111;
 	text-align: center;
 	color: #fff;
 	transition: all 500ms ease-out
 }
-
-/*.open {
-}*/
 
 .close{
 	transform: translateX(100%);
@@ -196,4 +193,33 @@
 .fas, .close-btn {
 	color: #f3f3f3;
 	font-size: 40px;
+}
+
+.cart-header {
+	padding: 20px 0;
+}
+
+.subtotal-sec {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	right: 0;
+	padding: 40px 20px;
+	box-shadow: 0 -2px 40px 0px #000;
+}
+
+.checkout-btn {
+	display: block;
+	background: #000;
+	padding: 15px 0;
+	text-align: center;
+	width: 100%;
+	color: #f3f3f3;
+	font-size: 16px;
+	margin-top: 30px;
+}
+
+.total-price {
+	display: flex;
+	justify-content: space-between;
 }
