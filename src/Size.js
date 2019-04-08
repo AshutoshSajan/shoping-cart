@@ -13,7 +13,6 @@ export default class Size extends React.Component {
 	}
 
 	render(){
-		// console.log(this.props)
 		return (
 			<section className="sizes">
 				<h2>Sizes:</h2>

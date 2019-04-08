@@ -10,6 +10,10 @@ export default class Main extends React.Component {
 		data: null,
 		loading: true,
 		isOpen: false,
+		className: "",
+		filtered: [],
+		cartItem: [],
+		count: 0
 	}
 
 	componentDidMount = () => {
@@ -19,40 +23,55 @@ export default class Main extends React.Component {
 	}
 
 	addToCart = (data) => {
-		// console.log(data)
-	}
+    // console.log(data, "main.js")
+    // const cartItem = []
+    // this.setState({cartItem: this.state.cartItem.concat([data])})
+    
+    const count = 0;
+    this.state.cartItem.includes(data) ? this.setState({cartItem: this.state.cartItem.concat([data, count++])}) : (this.setState({cartItem: this.state.cartItem.concat([data, count])}))
+  }
 	
 	toggleCart = () => {
 		const toggle = this.state.isOpen;
 		this.setState({isOpen: !toggle})
 	}
 
+	openCart = () => {
+		this.setState({isOpen: true})
+	}
+
 	handleFilter = (size) => {
+		console.log("clicked")
 		const filtered = this.state.data.filter(obj => obj.availableSizes.includes(size))
 		this.setState({filtered})
 	}
 
+	handleRemove = (e, v) => {
+		// console.log(v.id);
+		this.setState({cartItem: this.state.cartItem.filter(item => item.id !== v.id)})
+	}
+
 	render() {
 		console.log(this.state);
-		// setTimeout(() => this.setState({className: "internet-error"}), 2000)
-		// setTimeout(this.handleFilter ,1000)
+		setTimeout(() => this.setState({className: "internet-error"}), 1000);
 		return(
-			// <>
-				// navigator.online ?
+			<React.Fragment>
+				{
+				navigator.onLine ?
 				this.state.loading ? <Loading /> :
-				<>
-				<section className="main-sec">
+				(<section className="main-sec">
 					<Size data={this.state.data} handleFilter={this.handleFilter}/>
-					<div>
+					<div className="cards-section">
 						<Header data={this.state.data} />
 						<div className="card">
-							<Cards data={this.state} addToCart={this.addToCart} toggleCart={this.toggleCart}/>
+							<Cards data={this.state} addToCart={this.addToCart} openCart={this.openCart}/>
 						</div>
 					</div>
-				</section>
-				<Cart data={this.state} toggleCart={this.toggleCart} />
-			</>
-			// <p className={`error ${this.state.className}`}>No internet connection</p>
+					<Cart data={this.state} toggleCart={this.toggleCart} handleRemove={this.handleRemove}/>
+				</section> )
+				: <p className={`error ${this.state.className}`}>No internet connection</p>
+			}
+			</React.Fragment>
 		)
 	}
 }
